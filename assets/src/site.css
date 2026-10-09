@@ -1,0 +1,562 @@
+@import "tailwindcss" source(none);
+@source "../../templates";
+@source "../../app";
+@source "../js";
+
+/* Fonts load from Google Fonts in templates/layout.php. */
+:root {
+  --font-cormorant: "Cormorant";
+  --font-instrument: "Instrument Sans";
+  --font-plex-mono: "IBM Plex Mono";
+  --font-tiro: "Tiro Devanagari Hindi";
+  --font-caveat: "Caveat";
+}
+
+/*
+ * Vidyansh design tokens. Black and ivory carry the page, gold is an accent only.
+ * The Test Series signal colours are reserved for assessment views.
+ */
+@theme {
+  --color-ink: #f4eee2;
+  --color-night: #ece5d7;
+  --color-charcoal: #e5ddcd;
+  --color-graphite: #d8cfbd;
+  --color-stone: #3d372f;
+  --color-ivory: #070706;
+  --color-parchment: #1d1b17;
+  --color-gold: #c8902f;
+  --color-gold-deep: #e2cc9c;
+  --color-champagne: #8f6116;
+  --color-mute-d: #5a5248;
+  --color-mute-l: #a29a8f;
+  --color-body-d: #3d372f;
+  --color-ok: #4f6a3c;
+  --color-bad: #9b4a33;
+  --color-mark: #6b4f87;
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Garamond, "Times New Roman", serif;
+  --font-sans: var(--font-instrument), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, Menlo, Consolas, monospace;
+  --font-deva: var(--font-tiro), "Noto Serif Devanagari", serif;
+  --font-hand: var(--font-caveat), "Segoe Print", cursive;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --breakpoint-xs: 30rem;
+}
+
+:root {
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  --line-d: rgb(7 7 6 / 0.13);
+  --line-l: rgb(244 238 226 / 0.15);
+  --hair: rgb(7 7 6 / 0.26);
+  /* Vertical rhythm: sections breathe; editorial, not dense. */
+  --space-section: clamp(8rem, 17vw, 16rem);
+  --space-block: clamp(4.5rem, 9vw, 8.5rem);
+  --header-h: 4.25rem;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* Layered so Tailwind leading/tracking utilities on headings take effect. */
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+}
+
+::selection { background: var(--color-champagne); color: var(--color-ink); }
+
+:focus-visible {
+  outline: 2px solid var(--color-champagne);
+  outline-offset: 3px;
+}
+.on-light :focus-visible { outline-color: var(--color-gold-deep); }
+
+@layer components {
+  .container-v {
+    width: 100%;
+    max-width: 85rem;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.71875rem;
+    line-height: 1.4;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    color: var(--color-mute-d);
+  }
+  .on-light .eyebrow { color: var(--color-mute-l); }
+
+  .hairline { background: var(--hair); height: 1px; }
+
+  /* Engineering dimension line with end ticks and a centred label */
+  .dimension {
+    position: relative;
+    height: 1px;
+    background: var(--hair);
+    display: flex;
+    justify-content: center;
+  }
+  .dimension::before, .dimension::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    width: 1px;
+    height: 13px;
+    background: var(--hair);
+  }
+  .dimension::before { left: 0; }
+  .dimension::after { right: 0; }
+
+  /* Drawing title block */
+  .title-block {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    border: 1px solid var(--hair);
+  }
+  .title-block > span {
+    padding: 0.45rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.65625rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .title-block > span:first-child { border-right: 1px solid var(--hair); color: var(--color-mute-d); }
+  .on-light .title-block { border-color: rgb(143 97 22 / 0.45); }
+  .on-light .title-block > span:first-child { border-color: rgb(143 97 22 / 0.45); color: var(--color-mute-l); }
+
+  .crosshair { position: absolute; width: 26px; height: 26px; pointer-events: none; }
+  .crosshair::before, .crosshair::after { content: ""; position: absolute; background: var(--hair); }
+  .crosshair::before { left: 50%; top: 0; bottom: 0; width: 1px; }
+  .crosshair::after { top: 50%; left: 0; right: 0; height: 1px; }
+
+  .link-underline {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    padding-bottom: 4px;
+    transition: background-size 0.35s var(--ease-out-expo);
+  }
+  .link-underline:hover, .link-underline:focus-visible { background-size: 100% 1px; }
+
+  .drafting-grid {
+    background-image:
+      linear-gradient(rgb(7 7 6 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(7 7 6 / 0.04) 1px, transparent 1px);
+    background-size: 2.5rem 2.5rem;
+  }
+
+  /* Logo edges fade into the page so the square artwork sits on black seamlessly.
+     Only the empty outer margin of the artwork is affected. */
+  .logo-edge {
+    -webkit-mask-image:
+      linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent),
+      linear-gradient(180deg, transparent, #000 4%, #000 96%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent),
+      linear-gradient(180deg, transparent, #000 4%, #000 96%, transparent);
+    mask-composite: intersect;
+  }
+}
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { transition: transform 1s var(--ease-out-expo), opacity 1s var(--ease-out-expo); }
+  .reveal[data-shown="false"] { transform: translateY(1.75rem); opacity: 0.35; }
+
+  .hero-line { animation: hero-rise 1.2s var(--ease-out-expo) both; }
+  .hero-line-2 { animation-delay: 0.14s; }
+  .hero-fade { animation: hero-fade 1.2s 0.7s var(--ease-out-expo) both; }
+  .hero-fade-late { animation: hero-fade 1.2s 1s var(--ease-out-expo) both; }
+  .hero-ignite { animation: hero-ignite 1.6s 0.4s var(--ease-out-expo) both; }
+  .orbit-draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: orbit-draw 2.2s 0.2s var(--ease-out-expo) forwards; }
+  .ticker-run { animation: ticker 60s linear infinite; }
+  .ticker:hover .ticker-run, .ticker:focus-within .ticker-run { animation-play-state: paused; }
+}
+@keyframes hero-rise { from { opacity: 0; transform: translateY(0.32em); } to { opacity: 1; transform: none; } }
+@keyframes hero-fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes hero-ignite { from { opacity: 0; transform: scale(0.96); filter: brightness(0.4); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes orbit-draw { to { stroke-dashoffset: 0; } }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* ---------- Pinned journey (desktop, motion allowed) ---------- */
+.journey[data-pinned="true"] .journey-stage { height: 500vh; }
+.journey[data-pinned="true"] .journey-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  transition: background-color 0.9s var(--ease-out-expo);
+}
+.journey[data-pinned="true"] .chapter {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+  background: transparent;
+  opacity: 0;
+  visibility: hidden;
+  padding-right: calc(var(--gutter) + 3.5rem);
+  transition: opacity 0.9s var(--ease-out-expo), visibility 0s 0.9s;
+}
+.journey[data-pinned="true"] .chapter[data-active="true"] {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.9s var(--ease-out-expo), visibility 0s;
+}
+.journey[data-pinned="true"] .chapter-inner > * { transition: transform 1.1s var(--ease-out-expo); }
+.journey[data-pinned="true"] .chapter[data-active="false"] .chapter-inner > * { transform: translateY(30px); }
+
+.score-line { stroke-dasharray: 1; stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .score-line { transition: stroke-dashoffset 2.2s var(--ease-out-expo); }
+  [data-active="false"] .score-line { stroke-dashoffset: 1; }
+}
+
+.plate { transition: transform 1.2s var(--ease-out-expo); }
+.plate .plate-top { fill: rgb(7 7 6 / 0.05); stroke: rgb(7 7 6 / 0.28); transition: fill 0.4s, stroke 0.4s; }
+.plate .plate-side { fill: rgb(244 238 226 / 0.35); stroke: rgb(7 7 6 / 0.18); }
+.plate .plate-icon { stroke: rgb(7 7 6 / 0.35); fill: none; transition: stroke 0.4s; }
+.plate text { fill: var(--color-mute-d); transition: fill 0.4s; }
+.plate[data-active="true"] .plate-top { fill: rgb(7 7 6 / 0.12); stroke: var(--color-ivory); }
+.plate[data-active="true"] .plate-icon { stroke: var(--color-ivory); }
+.plate[data-active="true"] text { fill: var(--color-ivory); }
+
+/* ---------- Data tables stack into labelled rows on phones ---------- */
+@media (max-width: 47.99rem) {
+  .stack-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .stack-table tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem 1rem; padding-block: 1.1rem; border-bottom: 1px solid var(--line-d); }
+  .stack-table td { display: block; padding: 0 !important; border: 0 !important; box-shadow: none !important; text-align: left !important; }
+  .stack-table td:first-child { grid-column: 1 / -1; }
+  .stack-table td[data-label]::before { content: attr(data-label); display: block; margin-bottom: 0.3rem; font-family: var(--font-mono); font-size: 0.625rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-mute-d); }
+  .stack-table .stack-action { grid-column: 1 / -1; }
+}
+
+/* The stone chapter is mid-tone: deepen secondary text so it keeps AA contrast. */
+.on-stone .eyebrow, .on-stone .text-mute-l, .on-stone .title-block > span:first-child { color: #3f3931; }
+.on-stone .text-gold-deep { color: #5e3f0b; }
+.on-parchment .text-gold-deep { color: #6e4a10; }
+
+/* ---------- Story chapters and scene transitions ---------- */
+
+/* A full-width chapter mark opens each scene: numeral, a rule that draws in, the chapter name. */
+.chapter-mark {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+.chapter-mark__rule { height: 1px; background: currentColor; opacity: 0.22; transform-origin: left; align-self: center; }
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* The rule draws across as the chapter arrives. */
+    .chapter-mark__rule {
+      animation: rule-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+
+    /* Ivory scenes are laid over the dark page like a sheet of paper sliding up. */
+    .scene-sheet {
+      animation: sheet-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 85%;
+    }
+
+    /* Dark scenes surface out of the black: content rises and the tone lifts. */
+    .scene-surface > * {
+      animation: surface linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+
+    /* Display headings settle in, line by line, as they cross the lower third. */
+    .settle {
+      animation: settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+  }
+}
+@keyframes rule-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes sheet-rise {
+  from { clip-path: inset(9% 5% 0 5%); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes surface { from { opacity: 0.15; transform: translateY(4rem); } to { opacity: 1; transform: none; } }
+@keyframes settle { from { opacity: 0; transform: translateY(0.35em); } to { opacity: 1; transform: none; } }
+
+/* ---------- Hero title card ---------- */
+.hero-glow {
+  background:
+    radial-gradient(ellipse 50% 40% at 70% 70%, rgb(200 144 47 / 0.07), transparent 70%),
+    radial-gradient(ellipse 120% 90% at 50% 50%, transparent 60%, rgb(120 98 64 / 0.10));
+}
+.hero-mask { overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+/* "Destination" carries the light: ink warming to champagne across the word. */
+.hero-sheen {
+  background: linear-gradient(100deg, var(--color-ivory) 0%, var(--color-ivory) 42%, var(--color-champagne) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-inline: 0.06em;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise { animation: hero-rise-mask 1.5s var(--ease-out-expo) both; }
+  .hero-rise-2 { animation-delay: 0.25s; }
+  .hero-rise-3 { animation: hero-rise-mask 1.7s 0.4s var(--ease-out-expo) both; }
+  .hero-rule { animation: rule-draw 1.6s 0.5s var(--ease-out-expo) both; }
+  .hero-rule:first-child { transform-origin: right; }
+  .hero-glow { animation: hero-fade 3s 0.8s ease-out both; }
+
+  @supports (animation-timeline: view()) {
+    /* On leaving, the title recedes like a closing shot. */
+    .hero-title {
+      animation: hero-recede linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 90%;
+    }
+  }
+}
+@keyframes hero-rise-mask { from { transform: translateY(105%); } to { transform: none; } }
+@keyframes hero-recede { to { transform: scale(0.94); opacity: 0.25; letter-spacing: 0.02em; } }
+
+/* Course panels: the plate drifts slightly on hover and its lines draw in on arrival. */
+.course-panel__art { transition: transform 1.6s var(--ease-out-expo); }
+@media (hover: hover) { .course-panel:hover .course-panel__art { transform: scale(1.025); } }
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .plate-drawing [pathLength]:not([stroke-dasharray]) {
+      stroke-dasharray: 1;
+      animation: plate-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 45%;
+    }
+  }
+}
+@keyframes plate-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+/* ---------- Exams: route map ---------- */
+/* Route map: lines draw in as each exam arrives. Off under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .route-network__line {
+    stroke-dasharray: 1;
+    animation: route-draw 2.4s 0.3s var(--ease-out-expo) both;
+  }
+
+  @supports (animation-timeline: view()) {
+    .exam-line__seg {
+      transform-origin: top;
+      animation: exam-seg-y linear both;
+      animation-timeline: view();
+      animation-range: entry 30% cover 45%;
+    }
+    @media (min-width: 48rem) {
+      .exam-line__seg {
+        transform-origin: left;
+        animation-name: exam-seg-x;
+      }
+    }
+  }
+}
+@keyframes route-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes exam-seg-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes exam-seg-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* ---------- Results: arrivals board ---------- */
+/* Split-flap characters for the arrivals board. Pure CSS: no images. */
+.flap-row {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  font-size: clamp(0.75rem, 0.95vw, 0.95rem);
+  font-weight: 500;
+  line-height: 1;
+}
+.flap {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 1.2em;
+  height: 1.7em;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #1d1b18 0 50%, #151310 50% 100%);
+  box-shadow: inset 0 0 0 1px rgb(244 238 226 / 0.06);
+  /* The board stays a dark object on the light page. */
+  color: #f4eee2;
+}
+/* The hinge between the two halves of each card. */
+.flap::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: calc(50% - 0.5px);
+  height: 1px;
+  background: rgb(0 0 0 / 0.85);
+}
+.flap--blank { background: linear-gradient(180deg, #171512 0 50%, #110f0d 50% 100%); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .flap {
+    transform-origin: 50% 50%;
+    animation: flap-turn 0.7s var(--ease-out-expo) both;
+    animation-delay: calc(var(--i, 0) * 28ms);
+  }
+}
+@keyframes flap-turn {
+  0% { transform: perspective(14em) rotateX(-88deg); color: transparent; }
+  60% { color: transparent; }
+  100% { transform: none; }
+}
+
+/* On phones the stacked rows sit on the dark board; give the labels room. */
+@media (max-width: 47.99rem) {
+  .arrivals .flap-row { font-size: 0.6875rem; }
+}
+
+/* The results page title is set on the board as a large station sign. */
+.results-sign .flap-row { font-size: clamp(2.25rem, 7.5vw, 6.5rem); gap: 0.06em; }
+.results-sign .flap { width: 1.05em; height: 1.4em; border-radius: 0.04em; }
+.results-sign { font-family: var(--font-mono); font-weight: 500; letter-spacing: 0; }
+.results-sign .flap-row > span { gap: 0.06em; }
+
+/* Journal articles: long-form reading on ivory. Bodies are supplied HTML, so they are styled here. */
+.article-prose {
+  color: var(--color-ink);
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+.article-prose > * + * { margin-top: 1.15em; }
+.article-prose h2 {
+  margin-top: clamp(4rem, 8vw, 6rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-ink);
+  font-size: clamp(2.25rem, 4.2vw, 3.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  scroll-margin-top: calc(var(--header-h) + 1.5rem);
+}
+.article-prose h2 + * { margin-top: 1.75rem; }
+.article-prose h3 {
+  margin-top: 2.75rem;
+  font-size: clamp(1.5rem, 2.4vw, 1.875rem);
+  font-style: italic;
+  line-height: 1.1;
+}
+.article-prose h3 + * { margin-top: 1rem; }
+.article-prose strong { font-weight: 600; }
+.article-prose a { text-decoration: underline; text-underline-offset: 3px; }
+.article-prose ul, .article-prose ol { padding-left: 0; list-style: none; display: grid; gap: 0.6rem; }
+.article-prose ul > li { position: relative; padding-left: 1.5rem; }
+.article-prose ul > li::before { content: ""; position: absolute; left: 0.2rem; top: 0.78em; width: 0.5rem; height: 1px; background: var(--color-ink); }
+.article-prose ol { counter-reset: step; }
+.article-prose ol > li { counter-increment: step; display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); }
+.article-prose ol > li::before { content: counter(step, decimal-leading-zero); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; color: var(--color-mute-l); padding-top: 0.35em; }
+.article-table {
+  overflow-x: auto;
+  margin-block: 1.75rem;
+  border-top: 2px solid var(--color-ink);
+  scrollbar-width: thin;
+}
+.article-table:focus-visible { outline: 1px solid var(--color-ink); outline-offset: 4px; }
+.article-table table { width: 100%; border-collapse: collapse; font-size: 0.975rem; line-height: 1.5; font-variant-numeric: tabular-nums; }
+.article-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-mute-l);
+  padding: 0.85rem 1rem 0.85rem 0;
+  border-bottom: 1px solid var(--color-ink);
+  white-space: nowrap;
+}
+.article-table td { padding: 0.85rem 1rem 0.85rem 0; border-bottom: 1px solid var(--line-l); vertical-align: top; }
+.article-table td:first-child { min-width: 9rem; }
+.article-table tr:last-child td { border-bottom-color: var(--color-ink); }
+.article-prose details { border-bottom: 1px solid var(--line-l); margin-top: 0; }
+.article-prose h2#faqs + details { border-top: 0; }
+.article-prose summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
+  line-height: 1.2;
+}
+.article-prose summary::-webkit-details-marker { display: none; }
+.article-prose summary::after { content: "+"; font-family: var(--font-mono); font-size: 1rem; color: var(--color-mute-l); transition: transform 0.4s var(--ease-out-expo); }
+.article-prose details[open] summary::after { transform: rotate(45deg); }
+.article-prose summary:hover { font-style: italic; }
+.article-prose details p { padding-bottom: 1.25rem; max-width: 60ch; color: var(--color-mute-l); }
+
+/*
+ * Light edition. The palette above is the light ground: "ink" now names the paper and "ivory" the type.
+ * Sections marked .on-light were designed as the light pages of the original black/ivory scheme,
+ * so they keep that scheme's values here, which renders them light as well.
+ */
+.on-light {
+  --color-ink: #070706;
+  --color-night: #0e0d0b;
+  --color-charcoal: #161411;
+  --color-graphite: #26231f;
+  --color-stone: #c9beaa;
+  --color-ivory: #f4eee2;
+  --color-parchment: #e7decd;
+  --color-gold-deep: #8f6116;
+  --color-champagne: #e2cc9c;
+  --color-mute-d: #a29a8f;
+  --color-mute-l: #5a5248;
+  --color-body-d: #cfc6b8;
+  --color-ok: #9db08a;
+  --color-bad: #c77a62;
+  --color-mark: #b79bd0;
+  --line-d: rgb(244 238 226 / 0.13);
+  --line-l: rgb(7 7 6 / 0.15);
+  --hair: rgb(244 238 226 / 0.26);
+}
+
+/* Drawing sheets for the course plates: a shade darker than the page, drawn in ink. */
+.plate-sheet {
+  background-color: #e9e1d0;
+  color: #070706;
+  --color-ink: #e9e1d0;
+  --color-ivory: #070706;
+  --color-mute-d: #5a5248;
+  --color-mute-l: #5a5248;
+  --line-d: rgb(7 7 6 / 0.13);
+  --hair: rgb(7 7 6 / 0.26);
+}

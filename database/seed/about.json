@@ -1,0 +1,100 @@
+{
+ "aboutTitlePage": {
+  "eyebrow": "About Vidyansh",
+  "edition": "Founded —"
+ },
+ "chapters": [
+  {
+   "id": "why",
+   "numeral": "I",
+   "title": "Why Vidyansh exists",
+   "paragraphs": [
+    {
+     "text": "Most aspirants begin with a dream and very little else. A syllabus that runs to pages, a stack of borrowed notes, advice from everyone and a plan from no one. Many of them are capable. What they lack is not ability but direction.",
+     "margin": "Who it is for · engineering aspirants preparing for JE and AE exams"
+    },
+    {
+     "text": "Vidyansh exists so that no serious student has to prepare alone. It gives each of them a teacher who knows the road, a plan that is written down, and a way to see, every week, whether the plan is working."
+    },
+    {
+     "text": "The founder's own reasons for starting it, in his own words, will be added here.",
+     "margin": "Placeholder · founder's account to come"
+    }
+   ],
+   "pullQuote": {
+    "after": 1,
+    "text": "Not ability, but direction."
+   }
+  },
+  {
+   "id": "name",
+   "numeral": "II",
+   "title": "The name",
+   "paragraphs": [
+    {
+     "text": "Vidyansh joins two Sanskrit words: vidya, knowledge, and ansh, a share or a part. Together they mean a share of knowledge.",
+     "margin": "विद्या + अंश · vidyā + aṃśa"
+    },
+    {
+     "text": "We chose it because it is honest about what a teacher can do. No institute hands a student a result. What a teacher can give is a share of what they know, given carefully and in the right order, so the student can build the rest themselves."
+    }
+   ],
+   "pullQuote": {
+    "after": 1,
+    "text": "A teacher gives a share. The student builds the rest."
+   }
+  },
+  {
+   "id": "how",
+   "numeral": "III",
+   "title": "How we teach",
+   "paragraphs": [
+    {
+     "text": "Every course at Vidyansh follows the same five stages. They are not a slogan; they are the order in which the work actually happens.",
+     "margin": "The same five stages run through every course and test series"
+    }
+   ]
+  },
+  {
+   "id": "never",
+   "numeral": "IV",
+   "title": "What we will never do",
+   "paragraphs": [
+    {
+     "text": "Some promises are easier to keep when they are written down. These are ours.",
+     "margin": "Read these first"
+    }
+   ]
+  }
+ ],
+ "colophon": {
+  "founded": "—",
+  "place": "—",
+  "note": "One mentor, one plan for each student, and an honest route from where you are to where you want to be."
+ },
+ "nevers": [
+  {
+   "title": "We will never fabricate a result.",
+   "body": "Every selection we publish is verified, and shown only with the student's consent."
+  },
+  {
+   "title": "We will never sell a shortcut.",
+   "body": "There is no secret trick to an engineering exam. There is understanding, practice and time."
+  },
+  {
+   "title": "We will never promise a rank.",
+   "body": "We promise the teaching, the plan and the honesty. The rank belongs to the student."
+  },
+  {
+   "title": "We will never leave a doubt unanswered.",
+   "body": "If a student asks, a teacher replies."
+  }
+ ],
+ "stageNotes": {
+  "dream": "We begin by asking what the student wants, and why. The answer shapes everything after it.",
+  "direction": "Then we choose the examination with them, and read its official notification together.",
+  "preparation": "Structured lectures, notes and practice, week by week, with a plan they can see.",
+  "performance": "Tests under real conditions, with analysis that shows exactly where marks were lost.",
+  "destination": "The result. Earned by the student, published only with their consent."
+ }
+}

@@ -1,0 +1,120 @@
+{
+ "journeyStages": [
+  {
+   "id": "dream",
+   "number": "01",
+   "title": "Dream",
+   "question": "What are you preparing for?",
+   "light": "Night"
+  },
+  {
+   "id": "direction",
+   "number": "02",
+   "title": "Direction",
+   "question": "Choose your examination.",
+   "light": "First light"
+  },
+  {
+   "id": "preparation",
+   "number": "03",
+   "title": "Preparation",
+   "question": "Learn with structured guidance.",
+   "light": "Dawn"
+  },
+  {
+   "id": "performance",
+   "number": "04",
+   "title": "Performance",
+   "question": "Practice and analyse.",
+   "light": "Morning"
+  },
+  {
+   "id": "destination",
+   "number": "05",
+   "title": "Destination",
+   "question": "Turn preparation into achievement.",
+   "light": "Daybreak"
+  }
+ ],
+ "manifesto": {
+  "eyebrow": "Why Vidyansh exists",
+  "text": [
+   "Every aspirant begins with a dream and very little else. Vidyansh exists so that no serious student has to prepare ",
+   "alone",
+   ", with a teacher who knows the road and a plan that ends at a destination."
+  ],
+  "signature": "Shubham",
+  "role": "Founder & mentor"
+ },
+ "storyStair": [
+  {
+   "word": "Dream",
+   "note": "What are you preparing for?"
+  },
+  {
+   "word": "Direction",
+   "note": "The right exam, the right plan."
+  },
+  {
+   "word": "Preparation",
+   "note": "Structured, every single week."
+  },
+  {
+   "word": "Performance",
+   "note": "Tested, measured, improved."
+  },
+  {
+   "word": "Destination",
+   "note": "Preparation turned into achievement."
+  }
+ ],
+ "week": {
+  "days": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sat",
+   "Sun"
+  ],
+  "slots": [
+   {
+    "time": "07:00",
+    "blocks": [
+     "live",
+     "live",
+     "live",
+     "live",
+     "live",
+     "test",
+     null
+    ]
+   },
+   {
+    "time": "11:00",
+    "blocks": [
+     "practice",
+     "practice",
+     null,
+     "practice",
+     "practice",
+     "analysis",
+     "revise"
+    ]
+   },
+   {
+    "time": "17:00",
+    "blocks": [
+     null,
+     "doubts",
+     "notes",
+     null,
+     "doubts",
+     null,
+     "revise"
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,265 @@
+{
+ "results": {
+  "isSample": true,
+  "year": "2025",
+  "stats": [
+   {
+    "value": null,
+    "label": "Selections across all exams"
+   },
+   {
+    "value": null,
+    "label": "Ranks inside the top 100"
+   },
+   {
+    "value": null,
+    "label": "States our students serve in"
+   }
+  ],
+  "arrivals": [
+   {
+    "student": "Student name",
+    "from": "Home town",
+    "destination": "SSC JE · Civil",
+    "rank": "AIR —"
+   },
+   {
+    "student": "Student name",
+    "from": "Home town",
+    "destination": "RRB JE · Electrical",
+    "rank": "AIR —"
+   },
+   {
+    "student": "Student name",
+    "from": "Home town",
+    "destination": "State AE · Civil",
+    "rank": "State —"
+   },
+   {
+    "student": "Student name",
+    "from": "Home town",
+    "destination": "State JE · Mechanical",
+    "rank": "State —"
+   }
+  ],
+  "stories": [
+   {
+    "id": "s1",
+    "firstName": "Story 01",
+    "quote": "A selected student's own words about where they started and what changed.",
+    "byline": "Name · Exam · Year",
+    "rank": "AIR —"
+   },
+   {
+    "id": "s2",
+    "firstName": "Story 02",
+    "quote": "A second story, in the student's own words, approved by them before publishing.",
+    "byline": "Name · Exam · Year",
+    "rank": "AIR —"
+   },
+   {
+    "id": "s3",
+    "firstName": "Story 03",
+    "quote": "A third story. One at a time, with a portrait, never in a carousel.",
+    "byline": "Name · Exam · Year",
+    "rank": "State —"
+   }
+  ]
+ },
+ "resultsBoard": {
+  "isSample": true,
+  "years": [
+   "2025",
+   "2024"
+  ],
+  "exams": [
+   {
+    "code": "ssc-je",
+    "label": "SSC JE"
+   },
+   {
+    "code": "rrb-je",
+    "label": "RRB JE"
+   },
+   {
+    "code": "state-ae-je",
+    "label": "State AE / JE"
+   }
+  ],
+  "rows": [
+   {
+    "id": "25-1",
+    "student": "Sample",
+    "from": "—",
+    "destination": "SSC JE · Civil",
+    "exam": "ssc-je",
+    "rank": "—",
+    "year": "2025"
+   },
+   {
+    "id": "25-2",
+    "student": "Sample",
+    "from": "—",
+    "destination": "SSC JE · Electrical",
+    "exam": "ssc-je",
+    "rank": "—",
+    "year": "2025"
+   },
+   {
+    "id": "25-3",
+    "student": "Sample",
+    "from": "—",
+    "destination": "RRB JE · Mechanical",
+    "exam": "rrb-je",
+    "rank": "—",
+    "year": "2025"
+   },
+   {
+    "id": "25-4",
+    "student": "Sample",
+    "from": "—",
+    "destination": "RRB JE · Civil",
+    "exam": "rrb-je",
+    "rank": "—",
+    "year": "2025"
+   },
+   {
+    "id": "25-5",
+    "student": "Sample",
+    "from": "—",
+    "destination": "State AE · Civil",
+    "exam": "state-ae-je",
+    "rank": "—",
+    "year": "2025"
+   },
+   {
+    "id": "25-6",
+    "student": "Sample",
+    "from": "—",
+    "destination": "State JE · Electrical",
+    "exam": "state-ae-je",
+    "rank": "—",
+    "year": "2025"
+   },
+   {
+    "id": "24-1",
+    "student": "Sample",
+    "from": "—",
+    "destination": "SSC JE · Mechanical",
+    "exam": "ssc-je",
+    "rank": "—",
+    "year": "2024"
+   },
+   {
+    "id": "24-2",
+    "student": "Sample",
+    "from": "—",
+    "destination": "RRB JE · Electrical",
+    "exam": "rrb-je",
+    "rank": "—",
+    "year": "2024"
+   },
+   {
+    "id": "24-3",
+    "student": "Sample",
+    "from": "—",
+    "destination": "State JE · Electrical",
+    "exam": "state-ae-je",
+    "rank": "—",
+    "year": "2024"
+   },
+   {
+    "id": "24-4",
+    "student": "Sample",
+    "from": "—",
+    "destination": "State AE · Civil",
+    "exam": "state-ae-je",
+    "rank": "—",
+    "year": "2024"
+   }
+  ]
+ },
+ "storyFeatures": [
+  {
+   "storyId": "s1",
+   "headline": "The long way round",
+   "standfirst": "Where this student started, the year that changed it, and the day the result came. In their words, approved by them.",
+   "journey": [
+    {
+     "stage": "Dream",
+     "note": "Where it began · to come"
+    },
+    {
+     "stage": "Direction",
+     "note": "The exam chosen · to come"
+    },
+    {
+     "stage": "Preparation",
+     "note": "The plan followed · to come"
+    },
+    {
+     "stage": "Performance",
+     "note": "The mocks that mattered · to come"
+    },
+    {
+     "stage": "Destination",
+     "note": "The post · to come"
+    }
+   ]
+  },
+  {
+   "storyId": "s2",
+   "headline": "One subject at a time",
+   "standfirst": "A second feature: what they found hardest, how they kept going, what they would tell the next batch.",
+   "journey": [
+    {
+     "stage": "Dream",
+     "note": "Where it began · to come"
+    },
+    {
+     "stage": "Direction",
+     "note": "The exam chosen · to come"
+    },
+    {
+     "stage": "Preparation",
+     "note": "The plan followed · to come"
+    },
+    {
+     "stage": "Performance",
+     "note": "The mocks that mattered · to come"
+    },
+    {
+     "stage": "Destination",
+     "note": "The post · to come"
+    }
+   ]
+  },
+  {
+   "storyId": "s3",
+   "headline": "Close to home",
+   "standfirst": "A third feature, told at the student's pace, with their portrait and their permission.",
+   "journey": [
+    {
+     "stage": "Dream",
+     "note": "Where it began · to come"
+    },
+    {
+     "stage": "Direction",
+     "note": "The exam chosen · to come"
+    },
+    {
+     "stage": "Preparation",
+     "note": "The plan followed · to come"
+    },
+    {
+     "stage": "Performance",
+     "note": "The mocks that mattered · to come"
+    },
+    {
+     "stage": "Destination",
+     "note": "The post · to come"
+    }
+   ]
+  }
+ ]
+}

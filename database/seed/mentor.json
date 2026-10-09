@@ -1,0 +1,76 @@
+{
+ "mentor": {
+  "name": "Shubham Sir",
+  "quote": [
+   "Every student already has the dream. My work is to give it ",
+   "direction",
+   ", one week at a time."
+  ],
+  "bio": "Shubham Sir founded Vidyansh to teach the way he wished he had been taught: concept before shortcut, with a plan a student can actually follow. His full story, subjects and years of teaching go here.",
+  "principles": [
+   {
+    "numeral": "I",
+    "title": "Concept before shortcut",
+    "body": "Understand it once, apply it everywhere."
+   },
+   {
+    "numeral": "II",
+    "title": "Practice with purpose",
+    "body": "Every question chosen for what it teaches."
+   },
+   {
+    "numeral": "III",
+    "title": "No doubt left behind",
+    "body": "Answered within a day, by a teacher."
+   }
+  ],
+  "timeline": [
+   {
+    "year": "Year",
+    "label": "Began teaching"
+   },
+   {
+    "year": "Year",
+    "label": "First selections"
+   },
+   {
+    "year": "Year",
+    "label": "Vidyansh founded"
+   },
+   {
+    "year": "Today",
+    "label": "Mentoring aspirants"
+   }
+  ],
+  "chalk": [
+   {
+    "text": "Mmax = wL² / 8",
+    "x": "9%",
+    "y": "8%",
+    "rotate": -3,
+    "small": false
+   },
+   {
+    "text": "σ = M·y / I",
+    "x": "52%",
+    "y": "17%",
+    "rotate": 2,
+    "small": true
+   },
+   {
+    "text": "P + ½ρv² + ρgh = const.",
+    "x": "8%",
+    "y": "26%",
+    "rotate": -1,
+    "small": false
+   },
+   {
+    "text": "V = I · R",
+    "x": "60%",
+    "y": "34%",
+    "rotate": -4,
+    "small": true
+   }
+  ]
+ }
+}

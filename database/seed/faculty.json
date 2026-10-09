@@ -1,0 +1,103 @@
+{
+ "departments": [
+  {
+   "id": "civil",
+   "name": "Civil",
+   "summary": "For Civil Engineering papers across SSC JE, RRB JE and State AE / JE.",
+   "subjects": [
+    "Building materials",
+    "Surveying",
+    "Soil mechanics",
+    "Fluid mechanics & hydraulics",
+    "Structural analysis",
+    "RCC & steel design",
+    "Environmental engineering",
+    "Transportation engineering",
+    "Estimating & costing"
+   ],
+   "slots": 2
+  },
+  {
+   "id": "electrical",
+   "name": "Electrical",
+   "summary": "For Electrical Engineering papers, from basic circuits to power systems.",
+   "subjects": [
+    "Basic electrical engineering",
+    "Electrical machines",
+    "Power systems",
+    "Measurements & instruments",
+    "Power electronics",
+    "Control systems",
+    "Analog & digital electronics"
+   ],
+   "slots": 2
+  },
+  {
+   "id": "mechanical",
+   "name": "Mechanical",
+   "summary": "For Mechanical Engineering papers, theory and application together.",
+   "subjects": [
+    "Engineering mechanics",
+    "Strength of materials",
+    "Thermodynamics",
+    "Fluid mechanics & machinery",
+    "Theory of machines",
+    "Production engineering",
+    "Refrigeration & air conditioning"
+   ],
+   "slots": 2
+  },
+  {
+   "id": "general",
+   "name": "General Studies & Reasoning",
+   "summary": "The common papers every engineering aspirant sits, whatever the stream.",
+   "subjects": [
+    "General intelligence & reasoning",
+    "General awareness",
+    "Current affairs",
+    "Quantitative aptitude"
+   ],
+   "slots": 1
+  }
+ ],
+ "facultyPage": {
+  "eyebrow": "Faculty",
+  "intro": "The people who teach at Vidyansh, and what each of them is responsible for. Profiles are published only once each teacher has written and approved their own."
+ },
+ "founderFeature": {
+  "role": "Founder & mentor",
+  "subjects": "Subjects taught · to be confirmed",
+  "bio": [
+   "This is where Shubham Sir's own account of how he came to teach will sit: where he studied, what he prepared for himself, and the moment he decided that preparing others was the work he wanted to do.",
+   "A second paragraph on how he teaches in a room. How a class begins, how long he stays on one idea, and why he will slow a lecture down rather than leave one student behind.",
+   "A third paragraph on Vidyansh itself: why he founded it, what he asks of the teachers who join him, and what he wants a student to feel on the day their result comes.",
+   "Years of teaching, subjects and any other facts will be added here only once he has supplied and confirmed them."
+  ]
+ },
+ "teachingStatements": [
+  {
+   "n": "01",
+   "statement": "We teach the idea before the trick.",
+   "accent": "idea",
+   "body": "A shortcut you understand is a method. A shortcut you memorised is a guess."
+  },
+  {
+   "n": "02",
+   "statement": "Every question is chosen on purpose.",
+   "accent": "purpose",
+   "body": "Practice is set to teach something specific, never to fill a page."
+  },
+  {
+   "n": "03",
+   "statement": "A doubt is answered by a teacher.",
+   "accent": "teacher",
+   "body": "Not a bot, not a forum. Someone who knows the subject and knows you."
+  },
+  {
+   "n": "04",
+   "statement": "The plan is written down, week by week.",
+   "accent": "week by week",
+   "body": "So a student always knows what today is for."
+  }
+ ]
+}

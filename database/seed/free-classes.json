@@ -1,0 +1,160 @@
+{
+ "freeClassesPage": {
+  "eyebrow": "Free classes · On air",
+  "intro": "Live classes open to every aspirant, and recordings you can return to. No fee and no sign-up to watch.",
+  "channelNote": "Classes will stream on the Vidyansh channel. The channel link will appear here when it opens.",
+  "sampleNote": "Sample schedule. Days, times and topics will be confirmed before classes begin."
+ },
+ "nextLiveClass": {
+  "title": "Bending moment diagrams, from first principles",
+  "subject": "Strength of Materials",
+  "exam": "SSC JE · RRB JE",
+  "startsAt": null
+ },
+ "programme": [
+  {
+   "day": "Mon",
+   "slot": "morning",
+   "subject": "Strength of Materials",
+   "topic": "Shear force and bending moment",
+   "exam": "SSC JE"
+  },
+  {
+   "day": "Mon",
+   "slot": "evening",
+   "subject": "Reasoning",
+   "topic": "Series and analogies",
+   "exam": "SSC JE · RRB JE"
+  },
+  {
+   "day": "Tue",
+   "slot": "evening",
+   "subject": "Electrical Machines",
+   "topic": "Transformer equivalent circuit",
+   "exam": "RRB JE"
+  },
+  {
+   "day": "Wed",
+   "slot": "morning",
+   "subject": "Fluid Mechanics",
+   "topic": "Bernoulli's equation",
+   "exam": "SSC JE"
+  },
+  {
+   "day": "Wed",
+   "slot": "evening",
+   "subject": "Surveying",
+   "topic": "Levelling",
+   "exam": "State AE / JE"
+  },
+  {
+   "day": "Thu",
+   "slot": "evening",
+   "subject": "Thermodynamics",
+   "topic": "First law, closed systems",
+   "exam": "SSC JE"
+  },
+  {
+   "day": "Fri",
+   "slot": "morning",
+   "subject": "Structural Analysis",
+   "topic": "Plane trusses",
+   "exam": "State AE / JE"
+  },
+  {
+   "day": "Fri",
+   "slot": "evening",
+   "subject": "General awareness",
+   "topic": "Weekly current affairs",
+   "exam": "SSC JE · RRB JE"
+  },
+  {
+   "day": "Sat",
+   "slot": "morning",
+   "subject": "Doubt hour",
+   "topic": "Questions from the week",
+   "exam": "All exams"
+  },
+  {
+   "day": "Sun",
+   "slot": "morning",
+   "subject": "Free mock review",
+   "topic": "Walk-through of the weekly mock",
+   "exam": "All exams"
+  }
+ ],
+ "recordedLectures": [
+  {
+   "id": "rl-01",
+   "title": "Bending moment in twenty minutes",
+   "subject": "Strength of Materials",
+   "exam": "SSC JE",
+   "durationMin": null,
+   "href": null,
+   "poster": "beam"
+  },
+  {
+   "id": "rl-02",
+   "title": "Bernoulli's theorem, explained on a pipe",
+   "subject": "Fluid Mechanics",
+   "exam": "SSC JE · RRB JE",
+   "durationMin": null,
+   "href": null,
+   "poster": "bernoulli"
+  },
+  {
+   "id": "rl-03",
+   "title": "Series RLC circuits without fear",
+   "subject": "Basic Electrical",
+   "exam": "RRB JE",
+   "durationMin": null,
+   "href": null,
+   "poster": "circuit"
+  },
+  {
+   "id": "rl-04",
+   "title": "Method of joints for plane trusses",
+   "subject": "Structural Analysis",
+   "exam": "State AE / JE",
+   "durationMin": null,
+   "href": null,
+   "poster": "truss"
+  },
+  {
+   "id": "rl-05",
+   "title": "Phasors, drawn by hand",
+   "subject": "AC Circuits",
+   "exam": "SSC JE · RRB JE",
+   "durationMin": null,
+   "href": null,
+   "poster": "phasor"
+  },
+  {
+   "id": "rl-06",
+   "title": "Mohr's circle, one construction",
+   "subject": "Strength of Materials",
+   "exam": "State AE / JE",
+   "durationMin": null,
+   "href": null,
+   "poster": "mohr"
+  }
+ ],
+ "weekdayNames": {
+  "Mon": "Monday",
+  "Tue": "Tuesday",
+  "Wed": "Wednesday",
+  "Thu": "Thursday",
+  "Fri": "Friday",
+  "Sat": "Saturday",
+  "Sun": "Sunday"
+ },
+ "weekdays": [
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+  "Sun"
+ ]
+}
