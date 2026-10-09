@@ -1,0 +1,196 @@
+import type { Paper, SeriesFormat, SeriesTest, TestSeries } from "@/lib/types";
+
+/**
+ * Sample catalogue. Names reflect the categories Rishi listed; counts, durations
+ * and prices stay null until the real catalogue (or API) supplies them.
+ */
+const samplePaperMinutes = 15;
+const samplePaperLength = 10;
+
+const shell = {
+  testCount: null, questionsPerTest: null, durationMin: null,
+  hasSolutions: true, hasAnalysis: true, validityDays: null, price: null, originalPrice: null,
+} as const;
+
+export const testSeriesCatalogue: TestSeries[] = [
+  {
+    ...shell, id: "TS-SSC-01", slug: "ssc-je-full-length-mocks", name: "SSC JE Full-Length Mocks",
+    exam: "ssc-je", examLabel: "SSC JE", formats: ["full-length"],
+    subjects: ["Civil", "Electrical", "Mechanical"], difficulty: 4,
+    schedule: "Live this Sunday", featured: true,
+  },
+  {
+    ...shell, id: "TS-RRB-01", slug: "rrb-je-cbt-1-2", name: "RRB JE CBT 1 + CBT 2",
+    exam: "rrb-je", examLabel: "RRB JE", formats: ["full-length", "pyq"],
+    subjects: ["Technical", "General awareness"], difficulty: 3,
+    schedule: "Weekly releases", featured: true,
+  },
+  {
+    ...shell, id: "TS-AEJE-01", slug: "ae-je-combined", name: "AE / JE Combined Mocks",
+    exam: "ae-je", examLabel: "AE / JE", formats: ["full-length"],
+    subjects: ["Civil", "Electrical"], difficulty: 4,
+    schedule: "Open anytime", featured: true,
+  },
+  {
+    ...shell, id: "TS-STATE-01", slug: "state-ae-je-chapter-tests", name: "State AE / JE Chapter Tests",
+    exam: "state-ae-je", examLabel: "State AE / JE", formats: ["chapter", "subject"],
+    subjects: ["State-specific syllabus"], difficulty: 2,
+    schedule: "Open anytime", featured: true,
+  },
+  {
+    ...shell, id: "TS-SSC-02", slug: "ssc-je-subject-wise", name: "SSC JE Subject-wise Tests",
+    exam: "ssc-je", examLabel: "SSC JE", formats: ["subject"],
+    subjects: ["Strength of materials", "Fluid mechanics", "Electrical machines"], difficulty: 3,
+    schedule: "Open anytime",
+  },
+  {
+    ...shell, id: "TS-SSC-03", slug: "ssc-je-previous-year-papers", name: "SSC JE Previous Year Papers",
+    exam: "ssc-je", examLabel: "SSC JE", formats: ["pyq"],
+    subjects: ["Paper I", "Paper II"], difficulty: 3,
+    schedule: "Open anytime",
+  },
+  {
+    ...shell, id: "TS-RRB-02", slug: "rrb-je-chapter-wise", name: "RRB JE Chapter-wise Practice",
+    exam: "rrb-je", examLabel: "RRB JE", formats: ["chapter"],
+    subjects: ["Technical"], difficulty: 2,
+    schedule: "Weekly releases",
+  },
+  {
+    ...shell, id: "TS-AEJE-02", slug: "ae-je-previous-year-papers", name: "AE / JE Previous Year Papers",
+    exam: "ae-je", examLabel: "AE / JE", formats: ["pyq"],
+    subjects: ["Civil", "Electrical", "Mechanical"], difficulty: 4,
+    schedule: "Open anytime",
+  },
+];
+
+export const testSeriesFormats: { id: SeriesFormat; label: string; short: string; note: string }[] = [
+  { id: "full-length", label: "Full-length mocks", short: "Full-length", note: "The whole paper, timed exactly like the exam." },
+  { id: "subject", label: "Subject-wise tests", short: "Subject-wise", note: "One subject at a time, to find where marks leak." },
+  { id: "chapter", label: "Chapter-wise tests", short: "Chapter-wise", note: "Short tests set right after each chapter is taught." },
+  { id: "pyq", label: "Previous year papers", short: "Previous year", note: "Real past papers, solved and explained." },
+];
+
+export const testSeriesExams = [
+  { code: "ssc-je", label: "SSC JE" },
+  { code: "rrb-je", label: "RRB JE" },
+  { code: "ae-je", label: "AE / JE" },
+  { code: "state-ae-je", label: "State AE / JE" },
+] as const;
+
+export const testSeriesPromise = [
+  { label: "Real pattern", value: "Exam-true papers" },
+  { label: "Every answer", value: "Detailed solutions" },
+  { label: "Every attempt", value: "Rank & analysis" },
+];
+
+export const testSeriesPage = {
+  eyebrow: "Practice · Vidyansh Test Series",
+  title: ["Test yourself ", "before the exam", " tests you."] as const,
+  intro: "Papers set to the real pattern, timed to the second, with a full solution and analysis after every attempt. The first test in every series is free.",
+  steps: [
+    { n: "01", title: "Take the free test", body: "Every series opens with one free paper. Sign up with your phone number and begin." },
+    { n: "02", title: "Read your analysis", body: "Score, accuracy, time per question and the topics that cost you marks." },
+    { n: "03", title: "Unlock the series", body: "Buy once you have seen how the papers and analysis help you." },
+    { n: "04", title: "Practise to the date", body: "Tests release on schedule. Resume any paper where you left it." },
+  ],
+  catalogueNote: "Catalogue preview: test counts, durations and prices appear here as each series is published.",
+};
+
+/**
+ * Sample test lists. The first test of every series is free and playable with the
+ * sample paper below; the rest show how scheduled releases will look.
+ */
+const titles: Record<SeriesFormat, string> = {
+  "full-length": "Full-length mock",
+  subject: "Subject test",
+  chapter: "Chapter test",
+  pyq: "Previous year paper",
+};
+
+export const seriesTests: SeriesTest[] = testSeriesCatalogue.flatMap((s) =>
+  [1, 2, 3, 4].map((n) => ({
+    id: `${s.id}-T${String(n).padStart(2, "0")}`,
+    seriesSlug: s.slug,
+    number: n,
+    title: `${titles[s.formats[0]]} ${String(n).padStart(2, "0")}`,
+    format: s.formats[0],
+    isFree: n === 1,
+    questions: n === 1 ? samplePaperLength : null,
+    durationMin: n === 1 ? samplePaperMinutes : null,
+    releaseNote: n === 1 ? "Free · open now" : "Releases as scheduled",
+    paperId: n === 1 ? "sample-engineering-01" : undefined,
+  })),
+);
+
+/* ---------- Sample paper ---------- */
+
+
+export const samplePaper: Paper = {
+  id: "sample-engineering-01",
+  title: "Sample paper · Engineering fundamentals",
+  durationMin: samplePaperMinutes,
+  marking: { correct: 1, wrong: -0.25 },
+  languages: ["English"],
+  questions: [
+    {
+      id: "q1", subject: "Strength of materials",
+      text: "Maximum bending moment in a simply supported beam of span L carrying a uniformly distributed load w per unit length:",
+      options: ["wL² / 2", "wL² / 4", "wL² / 8", "wL² / 12"], answer: 2,
+      explanation: "Each support carries wL/2. At mid-span the moment is (wL/2)(L/2) − (wL/2)(L/4) = wL²/8.",
+    },
+    {
+      id: "q2", subject: "Strength of materials",
+      text: "Maximum deflection of the same simply supported beam under a uniformly distributed load w:",
+      options: ["wL⁴ / 8EI", "5wL⁴ / 384EI", "wL⁴ / 48EI", "wL³ / 3EI"], answer: 1,
+      explanation: "Integrating the moment equation twice with zero deflection at both supports gives 5wL⁴/384EI at mid-span.",
+    },
+    {
+      id: "q3", subject: "Strength of materials",
+      text: "The ratio of lateral strain to longitudinal strain within the elastic limit is called:",
+      options: ["Bulk modulus", "Modulus of rigidity", "Poisson's ratio", "Young's modulus"], answer: 2,
+      explanation: "Poisson's ratio is the (negative) ratio of lateral to longitudinal strain under uniaxial load.",
+    },
+    {
+      id: "q4", subject: "Fluid mechanics",
+      text: "Bernoulli's equation, in its standard form, applies to flow that is:",
+      options: ["Unsteady and compressible", "Steady, incompressible and non-viscous, along a streamline", "Turbulent and viscous", "Any flow through a pipe"], answer: 1,
+      explanation: "The standard form assumes steady, incompressible, frictionless flow along a streamline.",
+    },
+    {
+      id: "q5", subject: "Fluid mechanics",
+      text: "The SI unit of dynamic viscosity is:",
+      options: ["m²/s", "N·s/m²", "N/m", "kg/m³"], answer: 1,
+      explanation: "Dynamic viscosity is shear stress divided by velocity gradient: N/m² ÷ 1/s = N·s/m² (Pa·s).",
+    },
+    {
+      id: "q6", subject: "Electrical",
+      text: "Three 6 Ω resistors connected in parallel have an equivalent resistance of:",
+      options: ["18 Ω", "6 Ω", "3 Ω", "2 Ω"], answer: 3,
+      explanation: "1/R = 1/6 + 1/6 + 1/6 = 1/2, so R = 2 Ω.",
+    },
+    {
+      id: "q7", subject: "Electrical",
+      text: "The power factor of a purely inductive circuit is:",
+      options: ["1", "0.5 lagging", "Zero", "0.707 leading"], answer: 2,
+      explanation: "Current lags voltage by 90°, and cos 90° = 0.",
+    },
+    {
+      id: "q8", subject: "Electrical",
+      text: "Synchronous speed of a 4-pole machine on a 50 Hz supply:",
+      options: ["750 rpm", "1000 rpm", "1500 rpm", "3000 rpm"], answer: 2,
+      explanation: "Ns = 120f / P = 120 × 50 / 4 = 1500 rpm.",
+    },
+    {
+      id: "q9", subject: "Thermodynamics",
+      text: "A Carnot engine works between 500 K and 300 K. Its efficiency is:",
+      options: ["40%", "60%", "25%", "66.7%"], answer: 0,
+      explanation: "η = 1 − T₂/T₁ = 1 − 300/500 = 0.4, or 40%.",
+    },
+    {
+      id: "q10", subject: "Concrete technology",
+      text: "As per IS 456:2000, the minimum grade of concrete for reinforced concrete work is:",
+      options: ["M15", "M20", "M25", "M10"], answer: 1,
+      explanation: "IS 456:2000 Table 5 sets M20 as the minimum grade for reinforced concrete.",
+    },
+  ],
+};

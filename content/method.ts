@@ -1,0 +1,9 @@
+export const methodLayers = [
+  { code: "L1", title: "Concept class", body: "Live with Shubham Sir. The idea first, then the shortcut, never the other way round.", icon: "play" },
+  { code: "L2", title: "Notes that travel", body: "Concise printed and PDF notes written for revision, with every formula on one page.", icon: "notes" },
+  { code: "L3", title: "Practice sets", body: "Graded questions from previous papers, set the same day as the class.", icon: "graph" },
+  { code: "L4", title: "Weekly test", body: "Every Saturday, exam pattern, timed, ranked against the whole batch.", icon: "clock" },
+  { code: "L5", title: "Doubt desk", body: "No question waits more than a day. Answered by faculty, not by forums.", icon: "chat" },
+] as const;
+
+export type MethodIcon = (typeof methodLayers)[number]["icon"];
